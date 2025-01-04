@@ -1,0 +1,80 @@
+/ Base class
+class Car {
+private String make;
+private String model;
+private int year;
+
+public Car(String make, String model, int year) {
+this.make = make;
+this.model = model;
+this.year = year;
+}
+
+public void start() {
+System.out.println("Car is starting");
+}
+
+public void stop() {
+System.out.println("Car is stopping");
+}
+
+public String getMake() {
+return make;
+}
+
+public void setMake(String make) {
+this.make = make;
+}
+
+public String getModel() {
+return model;
+}
+
+public void setModel(String model) {
+this.model = model;
+}
+
+public int getYear() {
+return year;
+}
+
+public void setYear(int year) {
+this.year = year;
+}
+}
+
+// Derived class
+class ElectricCar extends Car {
+private int batteryLife;
+
+public ElectricCar(String make, String model, int year, int batteryLife) {
+super(make, model, year);
+this.batteryLife = batteryLife;
+}
+
+@Override
+public void start() {
+System.out.println("Electric car is starting silently");
+}
+
+public int getBatteryLife() {
+return batteryLife;
+}
+
+public void setBatteryLife(int batteryLife) {
+this.batteryLife = batteryLife;
+}
+}
+
+public class Main {
+public static void main(String[] args) {
+Car myCar = new Car("Toyota", "Corolla", 2020);
+myCar.start();
+myCar.stop();
+
+ElectricCar myElectricCar = new ElectricCar("Tesla", "Model S", 2021, 100);
+myElectricCar.start();
+System.out.println("Battery life: " + myElectricCar.getBatteryLife() + "%");
+}
+}
+
